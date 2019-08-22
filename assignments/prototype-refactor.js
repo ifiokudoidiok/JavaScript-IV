@@ -122,6 +122,7 @@ function PersonOriginal(name, age) {
   }
   
   let benz = new CarRefactored ('SUV', 'Mercedes Benz', 'G-63');
+
   /*
     TASK 3
   
@@ -138,8 +139,14 @@ function PersonOriginal(name, age) {
   Baby.prototype.play = function (){
     return "goo goo ga ga bla bla bla"
   };
-  let babyA = new Baby ('Andy', 2);
   
+  
+  class BabyRefactored extends PersonRefactored{
+      play(){
+        return "goo goo ga ga bla bla bla";
+      }
+  } 
+  let babyA = new BabyRefactored ('Andy', 2);
   /*
     TASK 4
   
