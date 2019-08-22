@@ -20,31 +20,47 @@ Prototype Refactor
   - Give persons the ability to poop.
   - When pooping, the stomach should empty.
 */
-function Person(name, age) {
+function PersonOriginal(name, age) {
     this.name = name;
     this.age = age;
     this.stomach = [];
-    
-    // console.log(this.stomachState);
-    // this.info = 
   
   };
   
-  Person.prototype.eat = function(food) {
+  PersonOriginal.prototype.eat = function(food) {
     this.stomach.push(food);
    
   };
-  Person.prototype.poop = function() {
+  PersonOriginal.prototype.poop = function() {
     this.stomach.length = 0;
     
   };
-  Person.prototype.greet = function (){
-    return `Hello there, I am ${this.name} and I am ${this.age} years old`
+  PersonOriginal.prototype.greet = function (){
+    return `Hello there, I am ${this.name} and I am ${this.age} years old`;
   };
+
+  //Refactored Code
   
-  let jay = new Person('Jay', 34);
+  class PersonRefactored {
+      constructor(name,age){
+          this.name = name;
+          this.age = age;
+          this.stomach = [];
+      }
+      eat(food){
+        return this.stomach.push(food)
+      }
+      poop(){
+          return this.stomach.length = 0;
+      }
+      greet (){
+        return `Hello there, I am ${this.name} and I am ${this.age} years old`;
+      }
+  }
+  let jay = new PersonRefactored('Jay', 34);
   jay.eat('yam');
   jay.eat('plantain');
+  
   
   /*
     TASK 2
@@ -89,10 +105,10 @@ function Person(name, age) {
     - By playing, a string is returned with some text of your choosing.
   */
   function Baby(name, age) {
-    Person.call(this, name, age);
+    PersonOriginal.call(this, name, age);
     
   }
-  Baby.prototype = Object.create(Person.prototype);
+  Baby.prototype = Object.create(PersonOriginal.prototype);
   Baby.prototype.play = function (){
     return "goo goo ga ga bla bla bla"
   };
