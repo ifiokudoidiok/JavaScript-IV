@@ -73,29 +73,55 @@ function PersonOriginal(name, age) {
     - Give cars the ability to be repaired.
     - A repaired car can be driven again.
   */
-  function Car(model, name, make) {
+  function CarOriginal(model, name, make) {
     this.model = model;
     this.name = name;
     this.make = make;
     this.odometer = 0;
     this.drive = true;
   };
-  Car.prototype.crash = function(){
+  CarOriginal.prototype.crash = function(){
     this.drive = false;
     return "Car crashed!"
   };
-  Car.prototype.cruise = function () {
+  CarOriginal.prototype.cruise = function () {
     if (this.drive === true){
       return ((this.odometer += 20) +' miles travelled') ;
     }
     return ('car crashed but ' + this.odometer + ' miles travelled');
   }
-  Car.prototype.fix = function(){
+  CarOriginal.prototype.fix = function(){
     this.drive = true;
     return "Car fixed!"
   };
   
-  let benz = new Car ('SUV', 'Mercedes Benz', 'G-63');
+  //Refactored Code
+  class CarRefactored {
+      constructor(model, name, make) {
+        this.model = model;
+        this.name = name;
+        this.make = make;
+        this.odometer = 0;
+        this.drive = true;
+      }
+      crash(){
+        this.drive = false;
+        return "Car crashed!"
+      };
+      fix(){
+        this.drive = true;
+        return "Car fixed!"
+      };
+      cruise(){
+        if (this.drive === true){
+            return ((this.odometer += 20) +' miles travelled') ;
+          }
+          return ('car crashed but ' + this.odometer + ' miles travelled');
+      };
+     
+  }
+  
+  let benz = new CarRefactored ('SUV', 'Mercedes Benz', 'G-63');
   /*
     TASK 3
   
