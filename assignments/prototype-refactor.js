@@ -147,34 +147,3 @@ function PersonOriginal(name, age) {
       }
   } 
   let babyA = new BabyRefactored ('Andy', 2);
-  /*
-    TASK 4
-  
-    Use your imagination and come up with constructors that allow to build objects
-    With amazing and original capabilities. Build 3 small ones, or a very
-    complicated one with lots of state. Surprise us!
-  
-  */
-  /*
-  Lambda 
-  Students:
-       1. are from  EU or US (EU students are fulltime only )
-      2. cohort===>>> web-(code JS,code HTML) data-(pythona and Java) UX - (figma,invision)
-      3. student performance(If below 50, drop student)
-      4. attend class - +10
-      5. Miss class - -10
-      4. view status scores and (Active or dropped)
-  
-  Staff:
-    1
-    2. admit student and give -location, cohort
-    1.Instructor-web -
-  */
-  
-//   function Lambda(name, location){
-//     this.name = name;
-//     this.location = location;
-  
-//   };
-  
- 
