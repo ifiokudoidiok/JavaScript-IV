@@ -2,10 +2,10 @@
 
 class Person {
     
-    constructor(data){
-        this.name= data.name;
-        this.age= data.age;
-        this.location= data.location;
+    constructor(personObj){
+        this.name= personObj.name;
+        this.age= personObj.age;
+        this.location= personObj.location;
     }
     
     speak(){
@@ -17,17 +17,17 @@ let sam = new Person ({name:'Sam', age:45, location:'italy'},'Redux');
 
 
 class Instructors extends Person{
-    constructor(data){
-        super(data);
+    constructor(personObj,instructorObj){
+        super(personObj);
         this.speciality= [];
         this.favLanguage= [];
-        this.catchPhrase=  "";
+        this.catchPhrase=  instructorObj.catchPhrase;
     }
     speciality(talent){
-        return this.stomach.push(talent)
+        return this.speciality.push(talent)
       }
       favLanguage(fav){
-        return this.stomach.push(fav)
+        return this.favLanguage.push(fav)
       }
     demo(subject){
         return `Today we are learning about ${subject}`
@@ -37,21 +37,38 @@ class Instructors extends Person{
     }
 
 };
-let jules = new Instructors ({name:'Jules', age:25, location:'London'},this.speciality="Don't forget the homies");
+let jules = new Instructors ({name:'Jules', age:25, location:'London'},{catchPhrase: "Dont forget the homies"});
 jules.speciality = ['redux'];
 jules.favLanguage = ['JS', 'Pyhton', 'Elm'];
-jules.catchPhrase = "Don't forget the homies";
+
 
 
 class Students extends Person{
-    constructor(data){
-        super(data);
+    constructor(personObj,studentObj){
+        super(personObj);
+        this.previousBackground = studentObj.previousBackground;
+        this.className = studentObj.className;
+        this.favSubjects = [];
     }
-
+    favSubjects(fav){
+        return this.favSubjects.push(fav)
+      }
+      listsSubjects(){
+           this.favSubjects()
+      }
+      prAsignment(subject){
+        console.log(`${this.name} has submitted a PR for ${subject}`);
+      }
+      sprintChallenge(subject){
+        console.log(`${this.name} has submitted a sprint challenge for ${subject}`);
+      }
 };
+let will = new Students({name:'Will', age:20, location:'Germany'},{previousBackground: "Computer Engineer", className:'WEBEU3'});
+will.favSubjects = ['Html', 'CSS', 'JavaScript'];
+
 class ProjectManagers extends Instructors{
-    constructor(data){
-        super(data);
+    constructor(personObj,instruct){
+        super(personObj, instruct);
 
     }
 
